@@ -1,7 +1,8 @@
-const os = require("os");
+const fs = require("fs");
 
-var freeMem = os.freemem();
-var totalMem = os.totalmem();
-
-console.log("Total memory " + totalMem);
-console.log("Free memory " + freeMem);
+const files = fs.readdirSync("./");
+console.log(files); //-> [ '.git', 'app.js', 'logger.js' ]
+fs.readdir("./", function (err, result) {
+  if (err) console.log("Error", err);
+  else console.log("Result", result); //-> [ '.git', 'app.js', 'logger.js' ]
+});
