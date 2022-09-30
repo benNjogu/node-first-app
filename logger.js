@@ -1,11 +1,15 @@
-console.log(__filename); //-> C:\Users\User\Documents\REPOS\node-first-app\logger.js
-console.log(__dirname); //-> C:\Users\User\Documents\REPOS\node-first-app
+const EventEmitter = require("events");
 
 var url = "http://mylogger.io/log";
 
-function log(message) {
-  //send an HTTP req
-  console.log(message);
+class Logger extends EventEmitter {
+  log(message) {
+    //send an HTTP req
+    console.log(message);
+
+    //Raise an event
+    this.emit("messageLogged", { id: 1, url: "http://" });
+  }
 }
 
-module.exports = log;
+module.exports = Logger;
