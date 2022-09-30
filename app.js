@@ -1,15 +1,7 @@
-const path = require("path");
+const os = require("os");
 
-var pathObj = path.parse(__filename);
+var freeMem = os.freemem();
+var totalMem = os.totalmem();
 
-console.log(pathObj);
-/**
- * 
-{
-  root: 'C:\\',
-  dir: 'C:\\Users\\User\\Documents\\REPOS\\node-first-app',
-  base: 'app.js',
-  ext: '.js',
-  name: 'app'
-}
- */
+console.log("Total memory " + totalMem);
+console.log("Free memory " + freeMem);
