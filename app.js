@@ -6,3 +6,8 @@ emitter.on("messageLogged", (arg) => console.log("Listener called", arg)); //-> 
 
 //Raise an event
 emitter.emit("messageLogged", { id: 1, url: "http://" });
+
+//Exercise
+emitter.on('logging', (arg) => console.log("logged", arg))//-> logged { data: 'message' }
+
+emitter.emit("logging", {data: 'message'})
